@@ -9,6 +9,26 @@ import (
 	"os"
 )
 
+
+func result(u int , c int) {
+	//tells you if you won or not
+    if u == c { 
+        fmt.Println("It's a tie. Try again next time.")
+        return
+    }
+	//use a circular array to calculate the results because elif are ugly, take too much space and really slow
+	possible := []int{1,2,3}
+	var rot int
+	rot = u -1
+	rotateL(possible , rot)
+	enemy := possible[1]
+	if c == enemy {
+        fmt.Println("You lost. Better luck next time.")
+	}else {
+        fmt.Println("You won, congrats!")		
+	}
+}
+
 func choice(v int) {
 	//convert the number to the RPS choice
     switch v {
@@ -22,25 +42,6 @@ func choice(v int) {
         fmt.Println("Nothing. You're not playing nice!")
 	os.Exit(0)    
     }
-}
-
-func result(u int , c int) {
-	//tells you if you won or not
-    if u == c { 
-        fmt.Println("It's a tie. Try again next time.")
-        return
-    }
-	//use a circular array to calculate the results because elseif are ugly, take too much space and really slow
-	possible := []int{1,2,3}
-	var rot int
-	rot = u -1
-	rotateL(possible , rot)
-	enemy := possible[1]
-	if c == enemy {
-        fmt.Println("You lost. Better luck next time.")
-	}else {
-        fmt.Println("You won, congrats!")		
-	}
 }
 
 func gcd(a, b int) int {
