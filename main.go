@@ -4,9 +4,9 @@ import (
         "fmt"
         "math/rand"
         "time"
-		"log"
-		"os/user"
-		"os"
+	"log"
+	"os/user"
+	"os"
 )
 
 func choice(v int) {
@@ -15,12 +15,11 @@ func choice(v int) {
         fmt.Println("Rock")
         case 2:
         fmt.Println("Paper")
-		case 3:
+	case 3:
         fmt.Println("Scissors")
         default:
-        fmt.Println("Nothing. You're not playing nice")
-		os.Exit(0)
-             
+        fmt.Println("Nothing. You're not playing nice!")
+	os.Exit(0)    
     }
 }
 
@@ -39,61 +38,47 @@ func result(u int , c int) {
 	}else {
         fmt.Println("You won, congrats!")		
 	}
-
 }
 
 func gcd(a, b int) int {
     for b != 0 {
         a, b = b, a % b
     }
-
     return a
 }
 
 func rotateL(a []int, i int) {
-
     i = i % len(a)
     if i < 0 {
         i += len(a)
     }
-
     for c := 0; c < gcd(i, len(a)); c++ {
-
         t := a[c]
-
         j := c
-
         for {
             k := j + i
-
             if k >= len(a) {
                 k -= len(a)
             }
-
             if k == c {
                 break
             }
-
             a[j] = a[k]
             j = k
         }
-
         a[j] = t
     }
 }
 
 func main() {
 
-	var usrplay int
-	// var cmtplay
-
+		var usrplay int
+		// var cmtplay
 		user, err := user.Current()
 		if err != nil {
-			log.Fatalf(err.Error())
+		log.Fatalf(err.Error())
 		}
-	
 		username := user.Username
-
 		fmt.Printf("Hello %s\n", username)
 		fmt.Println("Lets play Rock Paper Scissors")
 		fmt.Println("Type 1 for Rock, 2 for Paper or 3 for Scissors")
@@ -110,7 +95,7 @@ func main() {
 		time.Sleep(1 * time.Second)
 		var cpuplay int
 		rand.Seed(time.Now().UnixNano())
-        cpuplay = rand.Intn(3) + 1
+        	cpuplay = rand.Intn(3) + 1
 // for testing purposes		cpuplay = 1
 		choice(cpuplay)
 		result(usrplay , cpuplay)
