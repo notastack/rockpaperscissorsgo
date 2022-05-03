@@ -1,6 +1,8 @@
 # rockpaperscissorsgo
 Rock, Paper, Scissors, GO!
 
+It also includes circular arrays since those don't natively exist in GO.
+
 /*
 
     "THE BEER-WARE LICENSE" (Revision 42):
