@@ -102,8 +102,8 @@ func main() {
 		time.Sleep(1 * time.Second)
 		fmt.Println("1...")
 		time.Sleep(1 * time.Second)
-		var cpuplay int
 		//generate a random choice for the cpu
+		var cpuplay int
 		rand.Seed(time.Now().UnixNano())
         	cpuplay = rand.Intn(3) + 1
 // for testing purposes		cpuplay = 1
