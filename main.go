@@ -9,25 +9,6 @@ import (
 	"os"
 )
 
-func result(u int , c int) {
-	//tells you if you won or not
-    if u == c { 
-        fmt.Println("It's a tie. Try again next time.")
-        return
-    }
-	//use a circular array to calculate the results because elif are ugly, take too much space and are really slow
-	possible := []int{1,2,3}
-	var rot int
-	rot = u -1
-	rotateL(possible , rot)
-	enemy := possible[1]
-	if c == enemy {
-        fmt.Println("You lost. Better luck next time.")
-	}else {
-        fmt.Println("You won, congrats!")		
-	}
-}
-
 func choice(v int) {
 	//convert the number to the RPS choice
     switch v {
@@ -41,6 +22,25 @@ func choice(v int) {
         fmt.Println("Nothing. You're not playing nice!")
 	os.Exit(0)    
     }
+}
+
+func result(u int , c int) {
+	//tells you if you won or not
+    if u == c { 
+        fmt.Println("It's a tie. Try again next time.")
+        return
+    }
+	//use a circular array to calculate the results because elseif are ugly, take too much space and really slow
+	possible := []int{1,2,3}
+	var rot int
+	rot = u -1
+	rotateL(possible , rot)
+	enemy := possible[1]
+	if c == enemy {
+        fmt.Println("You lost. Better luck next time.")
+	}else {
+        fmt.Println("You won, congrats!")		
+	}
 }
 
 func gcd(a, b int) int {
@@ -74,29 +74,26 @@ func rotateL(a []int, i int) {
     }
 }
 
-func introduction () {
-	var usrplay int
-	user, err := user.Current()
-	if err != nil {
+func main() {
+		//the game
+		//also you lost
+		var usrplay int
+		// var cmtplay
+		user, err := user.Current()
+		if err != nil {
 		log.Fatalf(err.Error())
 		}
-	username := user.Username
-	fmt.Printf("Hello %s\n", username)
-	fmt.Println("Lets play Rock Paper Scissors")
-	username := user.Username
-	fmt.Printf("Hello %s\n", username)
-	fmt.Println("Lets play Rock Paper Scissors")
-}	
-
-func playthegame {
+		//introduce the player
+		username := user.Username
+		fmt.Printf("Hello %s\n", username)
+		fmt.Println("Lets play Rock Paper Scissors")
+		//you chose what you want to use
 		fmt.Println("Type 1 for Rock, 2 for Paper or 3 for Scissors")
 		fmt.Scanln(&usrplay)
 		fmt.Println("You choose")
 		choice(usrplay)
 		fmt.Println("The computer choose")
-}
-
-func hypetrain {
+		//builds up the hype
 		time.Sleep(1 * time.Second)
 		fmt.Println("3...")
 		time.Sleep(1 * time.Second)
@@ -104,22 +101,13 @@ func hypetrain {
 		time.Sleep(1 * time.Second)
 		fmt.Println("1...")
 		time.Sleep(1 * time.Second)
-}
-
-func finalresults {
-		//generate a random choice for the cpu
 		var cpuplay int
+		//generate a random choice for the cpu
 		rand.Seed(time.Now().UnixNano())
         	cpuplay = rand.Intn(3) + 1
 // for testing purposes		cpuplay = 1
 		choice(cpuplay)
 		//output the result
 		result(usrplay , cpuplay)
-}
 
-func main() {
-	introduction()
-	playthegame()
-	hypetrain()
-	finalresults()
 }
