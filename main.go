@@ -30,7 +30,7 @@ func result(u int , c int) {
         fmt.Println("It's a tie. Try again next time.")
         return
     }
-	//use a circular array to calculate the results because elseif are ugly, take too much space and really slow
+	//use a circular array to calculate the results because elif are ugly, take too much space and really slow
 	possible := []int{1,2,3}
 	var rot int
 	rot = u -1
