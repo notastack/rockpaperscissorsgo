@@ -11,16 +11,8 @@ import (
 
 func choice(v int) {
 	//convert the number to the RPS choice
-    switch v {
-        case 1:
-        fmt.Println("Rock")
-        case 2:
-        fmt.Println("Paper")
-	case 3:
-        fmt.Println("Scissors")
-        default:
-        fmt.Println("Nothing. You're not playing nice!")
-	os.Exit(0)    
+	choice := []string{"Rock","Paper","Scissors"}
+        fmt.Println(choice[v - 1])
     }
 }
 
