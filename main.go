@@ -13,7 +13,6 @@ func choice(v int) {
 	//convert the number to the RPS choice
 	choice := []string{"Rock","Paper","Scissors"}
         fmt.Println(choice[v - 1])
-    }
 }
 
 func result(u int , c int) {
