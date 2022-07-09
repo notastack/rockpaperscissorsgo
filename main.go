@@ -71,9 +71,6 @@ func main() {
 		var usrplay int
 		// var cmtplay
 		user, err := user.Current()
-		if err != nil {
-		log.Fatalf(err.Error())
-		}
 		//introduce the player
 		username := user.Username
 		fmt.Printf("Hello %s\n", username)
